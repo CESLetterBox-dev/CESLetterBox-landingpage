@@ -1,3 +1,4 @@
+/* @override http://librarybox.lan/content/css/structure.css */
 
 #header {
   color: #f8f8f8;
@@ -10,33 +11,35 @@
   padding: .5em;
 }
 .brand {
-  font-family: 'GearedSlab', serif;
+ 
+  font-family: 'Open Sans';
+  src: url("../fonts/OpenSans-Regular.ttf");
 }
 
 /* navbar */
 .navbar-inverse {
-  background-color: #F8F8F8;
-  border-color: #E7E7E7;
-  background-image: linear-gradient(to bottom, #FF7203 0%, #D55E1B 100%);
+  background-color: #003366;
+  border-color: #003366;
+  background-image: linear-gradient(to bottom, #003366 0%, #0098D2 100%);
 }
 
 .navbar-inverse .navbar-nav > li > a {
   text-shadow: none;
-  color: #FFF;
+  color: #ffffff;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
   color: #ffffff;
-  background-color: rgba(218, 55, 55, 0.6);
+  background-color: #003366;
 }
 
 /* title */
 .navbar-inverse .navbar-brand {
-  color: #E7E709;
+  color: #ffffff;
 }
 .navbar-inverse .navbar-brand:hover,
 .navbar-inverse .navbar-brand:focus {
-  color: #428bca;
+  color: #ffffff;
 }
 
 #header #top-nav ul li a {
@@ -54,9 +57,10 @@
 }
 
 #content #welcome p {
-  font-size: 1.2em;
-  margin: 0;
-  padding: 0;
+	font-size: 1.2em;
+	margin: 0;
+	padding: 0;
+	font-family: "Open Sans", sans-serif;
 }
 #content #shoutbox .message {
   font-size: .8em;
@@ -73,7 +77,8 @@
 }
 
 .card h2 {
-  border-bottom: 1px solid #e0e0e0;
+	border-bottom: 1px solid #e0e0e0;
+	font-family: "Open Sans", serif;
 }
 
 input[type=text],
@@ -92,7 +97,7 @@ textarea:first-child {
 
 
 #header {
-  background: #c03d14;
+  background: #003366;
   border-bottom: 1px solid #922e0f;
 }
 #header #menu-icon {
@@ -131,10 +136,12 @@ textarea:first-child {
 }
 
 #footer {
-  background: #c03d14;
-  border-top: 1px solid #922e0f;
-  margin: 2em 0 0 0;
-  padding: 0 0 1em;
+	margin: 2em 0 0 0;
+	padding: 0 0 1em;
+	background-color: #0098D2;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #034475;
 }
 #footer .to-top {
   float: right;
@@ -203,9 +210,11 @@ textarea:first-child {
 }
 @media screen and (min-width: 801px) {
   .container {
-    margin: 0 auto;
-    max-width: 1280px;
-    width: 90%;
+	margin: 0 auto;
+	max-width: 1280px;
+	width: 100%;
+	background-color: #;
+	color: #000;
   }
 
   .one-third {

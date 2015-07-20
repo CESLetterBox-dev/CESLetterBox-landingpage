@@ -308,11 +308,11 @@ html {
 }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.428571429;
-  color: #333333;
-  background-color: #ffffff;
+	font-family: "Open Sans", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.428571429;
+	color: #333333;
+	background-color: #ffffff;
 }
 
 input,
@@ -403,7 +403,7 @@ h6,
 .h5,
 .h6 {
   
-  font-family: 'GearedSlab', serif;
+  font-family: 'Open Sans', serif;
   font-weight: 500;
   line-height: 1.1;
   color: inherit;
@@ -504,7 +504,8 @@ p {
   margin: 1em 0 0;
 }
 p:first-child {
-  margin-top: 0;
+	margin-top: 0;
+	font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }
 
 .lead {
@@ -7129,8 +7130,3 @@ td.visible-print {
     display: none !important;
   }
 }
-
-
-
-
-
