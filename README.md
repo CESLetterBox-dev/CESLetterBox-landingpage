@@ -8,7 +8,7 @@ issues Runnells was having with Mormon history and doctrine in an attempt to hel
 assembled all of the unresolved issues that had impacted his faith into a massive letter to the Institute Director.
 While still unanswered, the letter itself, due to its quick summarization of nearly every issue currently plaguing
 American LDS culture, quickly spread through the Internet with such energy that Runnells eventually republished it as a
-website ((CESLetter.com)[http://cesletter.com/]).
+website (http://cesletter.com/).
 
 While Runnells himself has kept his activities relating to the word of doubting Mormonism to his own website, the use of
 the website's address has become something of a counter-cultural slogan among doubting and former Mormons. It has become
