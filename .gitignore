@@ -1,0 +1,12 @@
+npm-debug.log
+.sass-cache/
+www_content/
+Gemfile.lock
+node_modules/
+src/_built/
+src/css/
+src/index.html*
+src/fonts/bootstrap
+src/js/bootstrap*
+src/scss/_bootstrap-variables.scss
+src/scss/styles.scss

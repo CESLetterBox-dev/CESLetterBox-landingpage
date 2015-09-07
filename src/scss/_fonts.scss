@@ -1,0 +1,22 @@
+//fonts
+$font_0: GearedSlab;
+$font_1: Open Sans;
+
+//urls
+$url_0: url(../fonts/gearedslab-webfont.eot);
+$url_1: url(../fonts/gearedslab-webfont.svg);
+$url_2: url(../fonts/gearedslab-webfont.ttf);
+$url_3: url(../fonts/gearedslab-webfont.woff);
+$url_4: url(../fonts/OpenSans-Regular.ttf);
+
+@font-face {
+  font-family: $font_0;
+  src: $url_0;
+  src: $url_1;
+  src: $url_2;
+  src: $url_3;
+}
+@font-face {
+  font-family: $font_1;
+  src: $url_4;
+}

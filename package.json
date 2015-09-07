@@ -1,0 +1,77 @@
+{
+  "name": "cesletterbox",
+  "version": "1.0.0",
+  "description": "The CES Letterbox",
+  "main": "index.js",
+  "author": "Tom Doggett",
+  "license": "GPL2.0",
+  "devDependencies": {
+    "babelify": "^6.1.3",
+    "browserify": "^11.0.0",
+    "browserify-shim": "^3.8.10",
+    "domready": "^1.0.8",
+    "exorcist": "^0.4.0",
+    "htmlmin": "0.0.3",
+    "jquery": "^1.11.3",
+    "minifyify": "^7.0.3",
+    "mmd": "^4.7.1",
+    "watch": "^0.16.0",
+    "webl10n": "^1.0.0"
+  },
+  "config": {
+    "destDir": "www_content/"
+  },
+  "browserify": {
+    "transform": [ "browserify-shim", "babelify" ]
+  },
+  "browser": {
+    "jquery": "./node_modules/jquery/dist/jquery.min.js",
+    "bootstrap": "./src/js/bootstrap.min.js"
+  },
+  "browserify-shim": {
+    "bootstrap": {
+      "depends": [
+        "jquery:jQuery"
+      ]
+    }
+  },
+  "scripts": {
+    "gem:install": "gem install bundler && bundle install ;",
+    "gem:bootstrap": "bundle exec compass install bootstrap -r bootstrap-sass -I src/scss --sass-dir scss --css-dir _built/css --images-dir img --javascripts-dir js --font-dir fonts --app-dir src --force ;",
+    "gem": "npm run gem:install && npm run gem:bootstrap ;",
+    "preinstall": "npm run gem ;",
+    "postinstall": "npm run deploy -s ;",
+    "clean": "rm -rf $npm_package_config_destDir ;",
+    "scss": "compass compile --force -r bootstrap-sass -I src/scss --app-dir src --sass-dir scss/ --css-dir _built/css --images-dir img --javascripts-dir _built/js --fonts-dir fonts -s 'compact' -q --sourcemap",
+    "mmd:cesletter": "./node_modules/mmd/deps/MultiMarkdown-4/multimarkdown --process-html src/md/cesletter.md -o src/cesletter.html -t html --smart ;",
+    "mmd:cesletter_box_version": "./node_modules/mmd/deps/MultiMarkdown-4/multimarkdown --process-html src/md/cesletter_letterbox_version.md -o src/cesletter.html -t html --smart ;",
+    "mmd": "npm run mmd:cesletter_box_version ;",
+    "browserify:cesletter": "mkdir -p src/_built/js/ ; cd src/_built/js/ ; browserify -t [babelify] ../../js/cesLetterPage.js -d -o cesLetterPage.js -p [minifyify --map cesLetterPage.map.json --output cesLetterPage.map.json] ; cd ../../../ ;",
+    "browserify:about": "mkdir -p src/_built/js/ ; cd src/_built/js/ ; browserify -t [babelify browserify-shim] ../../js/aboutPage.js -d -o aboutPage.js -p [minifyify --map aboutPage.map.json --output aboutPage.map.json] ; cd ../../../ ;",
+    "browserify:chat": "mkdir -p src/_built/js/ ; cd src/_built/js/ ; browserify -t [babelify browserify-shim] ../../js/chatPage.js -d -o chatPage.js -p [minifyify --map chatPage.map.json --output chatPage.map.json] ; cd ../../../ ;",
+    "browserify:index": "mkdir -p src/_built/js/ ; cd src/_built/js/ ; browserify -t [babelify browserify-shim] ../../js/indexPage.js -d -o indexPage.js -p [minifyify --map indexPage.map.json --output indexPage.map.json] ; cd ../../../ ;",
+    "browserify:stats": "mkdir -p src/_built/js/ ; cd src/_built/js/ ; browserify -t [babelify browserify-shim] ../../js/statsPage.js -d -o statsPage.js -p [minifyify --map statsPage.map.json --output statsPage.map.json] ; cd ../../../ ;",
+    "browserify:l10n": "mkdir -p src/_built/js/ ; cd src/_built/js/ ; browserify -t [babelify] ../../../node_modules/webl10n/l10n.js -d -o l10n.js -p [minifyify --map l10n.map.json --output l10n.map.json] ; cd ../../../ ;",
+    "browserify": "npm run browserify:cesletter && npm run browserify:l10n && npm run browserify:about && npm run browserify:chat && npm run browserify:index && npm run browserify:stats ;",
+    "htmlmin:about": "htmlmin --remove-comments --remove-redundant-attributes --collapse-whitespace --use-short-doctype --remove-empty-attributes --remove-ignored src/html/about.html >> src/about.html ;",
+    "htmlmin:cesletter": "htmlmin --remove-comments --remove-redundant-attributes --collapse-whitespace --use-short-doctype --remove-empty-attributes --remove-ignored src/cesletter.html >> src/ceslettermin.html ; mv src/ceslettermin.html src/cesletter.html ;",
+    "htmlmin:chat": "htmlmin --remove-comments --remove-redundant-attributes --collapse-whitespace --use-short-doctype --remove-empty-attributes --remove-ignored src/html/chat.html >> src/chat.html ;",
+    "htmlmin:home": "htmlmin --remove-comments --remove-redundant-attributes --collapse-whitespace --use-short-doctype --remove-empty-attributes --remove-ignored src/html/index.html >> src/index.html ;",
+    "htmlmin:stats": "htmlmin --remove-comments --remove-redundant-attributes --collapse-whitespace --use-short-doctype --remove-empty-attributes --remove-ignored src/html/stats.html >> src/stats.html ;",
+    "htmlmin": "npm run htmlmin:about && npm run htmlmin:cesletter && npm run htmlmin:chat && npm run htmlmin:home && npm run htmlmin:stats ;",
+    "destmove:make-destir": "mkdir -p $npm_package_config_destDir ;",
+    "destmove:fonts-built": "cp -a src/fonts src/_built/ ;",
+    "destmove:built": "mv src/_built $npm_package_config_destDir ;",
+    "destmove:locales": "cp -a src/locales $npm_package_config_destDir ;",
+    "destmove:images": "cp -a src/img $npm_package_config_destDir ;",
+    "destmove:favicon": "cp -a src/favicon* $npm_package_config_destDir ;",
+    "destmove:scss": "cp -a src/scss $npm_package_config_destDir ;",
+    "destmove:html": "mv src/*.html $npm_package_config_destDir ;",
+    "destmove:php": "cp src/php/*.php $npm_package_config_destDir ;",
+    "destmove:cleanup": "rm -r .sass-cache ;",
+    "destmove": " npm run destmove:make-destir ; npm run destmove:fonts-built ; npm run destmove:built ; npm run destmove:locales ; npm run destmove:images ; npm run destmove:favicon ; npm run destmove:scss ; npm run destmove:html ; npm run destmove:php ; npm run destmove:cleanup ;",
+    "deploy": "npm run clean && npm run scss && npm run mmd && npm run browserify && npm run htmlmin && npm run destmove ;",
+    "watch": "watch 'npm run deploy ; echo \"Project deployed.\";' src/js/ src/md/ src/scss/ src/html ;",
+    "clean-everything": "rm -rf `cat .gitignore | tr '\n' ' '` ;"
+  }
+}

@@ -1,0 +1,119 @@
+.translationPicturesRow + p {
+  width: 100%;
+  position: relative;
+  a {
+    position: absolute;
+  }
+  img {
+    width: 100%;
+    border: 0.25em solid $white;
+    @include box-shadow($black 1px 1px 15px -5px);
+  }
+}
+.translationPicturesRowOne + p {
+  height: 16.75em;
+  a {
+    //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+    left: 32.5%;
+    top: 1em;
+    max-width: 24%;
+    min-width: 23%;
+    max-width: 23%;
+    &:first-of-type {
+      left: 0;
+      top: 0;
+      max-width: 30%;
+      z-index: 2;
+      min-width: 30%;
+      max-width: 30%;
+    }
+    &:last-of-type {
+      left: auto;
+      right: 0;
+      max-width: 42%;
+      min-width: 42%;
+    }
+  }
+}
+.translationPicturesRowTwo {
+  margin-top: -4.5em;
+  + p {
+    height: 16.75em;
+    a {
+      left: 27%;
+      top: 0;
+      min-width: 22%;
+      max-width: 22%;
+      &:first-of-type {
+        left: 0;
+        top: 10%;
+        min-width: 30%;
+        max-width: 30%;
+      }
+      &:last-of-type {
+        left: 47%;
+        top: -10%;
+        max-width: 21%;
+        min-width: 21%;
+      }
+    }
+  }
+}
+.translationPicturesRowThree {
+  margin-top: -17em;
+  + p {
+    height: 18em;
+    a {
+      left: 50%;
+      top: 35%;
+      max-width: 17%;
+      &:first-of-type {
+        left: 31%;
+        top: 50%;
+        min-width: 17%;
+        max-width: 17%;
+      }
+      &:last-of-type {
+        left: auto;
+        right: 0;
+        top: -7%;
+        min-width: 31%;
+        max-width: 31%;
+      }
+    }
+  }
+}
+.translationPicturesRowFour + p {
+  height: 300px;
+  a {
+    &:first-of-type {
+      left: 0;
+      top: 70%;
+      width: 25%;
+      z-index: 2;
+    }
+    &:last-of-type {
+      left: 15%;
+      width: 65%;
+    }
+  }
+}
+.translationPicturesRowFive {
+  margin-top: -7em;
+  + p {
+    height: 460px;
+    a {
+      &:first-of-type {
+        left: 15%;
+        width: 65%;
+        top: 17%;
+      }
+      &:last-of-type {
+        right: 0;
+        top: 0;
+        width: 30%;
+        z-index: 2;
+      }
+    }
+  }
+}
